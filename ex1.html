@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exercice 1</title>        
+    </head>
+
+    <body style="border:3px solid rgb(57, 10, 110); padding: 25px ;margin:50px; border-width:5; border-radius: 5px;">
+    <br>
+        Adresse : <input type="text" size="75%" id="adr" value="https://" ><br><br>
+        Largeur : <input type="number" id="larg" step="50"><br><br>
+        Hauteur : <input type="number" id="haut" step="50"><br><br><br>
+        
+        <center><button onclick="openWin()">Ouvrir</button> 
+        <button onclick="closeWin()">fermer</button> </center>
+        <br> 
+        <script lang="javascript">
+            let openedwindow;
+            function openWin(){
+                var ad = document.getElementById('adr').value
+                var larg=  document.getElementById('larg').value
+                var haut=  document.getElementById('haut').value
+                if(larg==0) larg=600;
+                if(haut==0) haut=400;
+                if(openedwindow==null || openedwindow.closed===true ) {
+                    openedwindow=window.open(ad,"",`width=${larg},height=${haut}`)
+                }
+            }
+
+            function closeWin(){
+                let text;
+                if (confirm("voulez-vous fermer cette fenetre") == true) {
+                text = "OK!";
+                openedwindow.close();
+                } else {
+                text = "Cancel!";
+                }
+            }
+        </script>
+    </body>
+</html>
